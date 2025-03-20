@@ -33,7 +33,7 @@ _class: lead
 -->
 
 <!--
-You probably recognize most of these logos, most likely because you use them on a day-to-day basis. Going further, you probably also think that it's, frankly, quite difficult to keep track of all the things going on everywhere.
+You probably recognize most of these logos, most likely because you have to use these platforms on a daily basis. And, if you're like me, you probably find it difficult to keep track of all the things going on everywhere.
 -->
 
 ## The Problem
@@ -53,12 +53,16 @@ _class: lead
 -->
 
 <!--
-To solve this, I created Snoty!
+To address this problem, I created Snoty!
 -->
 
 ## The Solution: Snoty.Me
 
 ---
+
+<!--
+WHETHER
+-->
 
 ## If you want to...
 - get notifications for assignments<br>(e.g. Moodle -> Discord, ...)
@@ -121,11 +125,13 @@ Or, if you can't wait or have a truly unique use case that wouldn't be merged in
 </style>
 
 <!--
-Now, let's talk tech. Apart from the SaaS instance reachable on https://snoty.me, Snoty is fully open source and supports self-hosting.
+Now, let's talk tech.
 The Backend is written in Kotlin and uses Ktor, JetBrains Exposed, JobRunr as well as other libraries.
 As for the database, Postgres and MongoDB are supported, with H2 or SQLite support coming soon. Why both MongoDB and Postgres? Well, the former was chosen at first but dropped in favor of the SQL database as a multitude of weird issues kept occurring in production.
 The Frontend is built using Svelte as the Framework with Skeleton and Tailwind providing opinionated UI components and styling utility classes respectively.
 As for the Infrastructure used, the Backend runs in a self-hosted Kubernetes cluster. To authenticate users, the unfortunate decision to use Keycloak was made.
+
+Apart from the SaaS instance available at https://snoty.me, you can also self-host Snoty. A Helm Chart is provided that can be used to deploy Snoty by just tweaking a few high-level settings. Other docs and examples will follow soon.
 -->
 
 <table>
@@ -162,7 +168,7 @@ _class: lead
 -->
 
 <!--
-And with that, it's time for the demo!
+Alright, enough talking, it's time for the demo!
 -->
 
 # Demo
