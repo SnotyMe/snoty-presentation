@@ -1,0 +1,39 @@
+name: "Deploy Marp to GH Pages"
+
+permissions:
+  pages: write
+  contents: write
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Copy images
+        run: mkdir build && cp -R res build/res
+
+      - name: Build presentation to HTML
+        uses: docker://marpteam/marp-cli:v4.1.2
+        with:
+          args: slides.md --theme ./dracula.css --html -o build/index.html
+        env:
+          MARP_USER: root:root
+
+      - name: Build presentation to PDF
+        uses: docker://marpteam/marp-cli:v4.1.2
+        with:
+          args: slides.md --theme ./dracula.css --html -o build/slides.pdf
+        env:
+          MARP_USER: root:root
+
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./build/
